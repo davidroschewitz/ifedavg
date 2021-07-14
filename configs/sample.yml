@@ -1,0 +1,65 @@
+seed: 42 # [1,2,3,4,5]
+
+# overall model
+model: MLPModel
+process: base #base, centralized, apfl
+participant: split #base, split (ifedavg), apfl
+dataset: vehicle # vehicle, har
+experiment_name: experiment_name
+run_name: ifedavg
+
+# dataset settings
+flip_target: False
+split_client: False
+
+# mixing config
+mixing_init: equal # equal for all methods except local
+weight_update_method: fixed
+similarity_function: cosine
+
+# split model
+personalized_update_start_round: 0.0
+reg_type: custom
+weight_reg_norm: 1
+reg_multiplier: 0.0
+local_layers: [feature_w, feature_b] #, target_w, target_b (enable for local target layer)
+hotstart_layers: False
+
+# normalization
+normalization_location: local
+normalization_mode: standardization
+missing_value_fill: 0
+missing_value_fill_binary: 0.5
+clip_standardized: False
+fill_missing_before_normalization: False
+
+# additional metric comparison parameters
+similarity_memory_factor: 0.75
+metric_comparison: delta
+similarity_weight_normalization: dot
+similarity_norm: 2
+
+n_rounds: 1000
+n_batch_limit:
+sync_beginning: True
+test_split: 0.33
+max_samples: 10000
+test_min_samples: 100
+
+batch_size: 16
+
+optimizer: SGD
+optimizer_params:
+  lr: 0.002
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+  weight_decay: 0.0
+  momentum: 0.5 # disable for APFL, 0.5 for all other methods
+  nesterov: False
+decay_steps: 50
+decay_mult: 0.9
+
+local_class_weighting: True
+
+metrics: [loss, balanced_accuracy, f1, precision, recall, pr_auc, roc_auc]
+visualize_local_weights: True
