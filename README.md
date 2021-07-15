@@ -1,7 +1,7 @@
 # iFedAvg
 iFedAvg -  Interpretable Data-Interoperability for Federated Learning
 
-The paper can be viewed on Arxiv [at this link]() (To be added).
+The paper can be viewed on Arxiv [at this link](https://arxiv.org/abs/2107.06580).
 
 ### Executing the code
 
@@ -29,7 +29,7 @@ If you wish to cite this repository or paper, please use the bibtext below:
 @article{roschewitz2021ifedavg,
   title={iFedAvg: Interpretable Data-Interoperability for Federated Learning},
   author={David Roschewitz and Mary-Anne Hartley and Luca Corinzia and Martin Jaggi},
-  journal={arXiv preprint arXiv:TBA},
+  journal={arXiv preprint arXiv:2107.06580},
   year={2021},
   primaryClass={cs.LG}
 }
